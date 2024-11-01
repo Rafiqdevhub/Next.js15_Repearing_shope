@@ -12,11 +12,12 @@ A comprehensive **Repair Shop Application** built with **Next.js** and **TypeScr
 
 ## 🚀 Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) - React framework for server-rendered applications.
-- **Language**: [TypeScript](https://www.typescriptlang.org/) - Superset of JavaScript providing static types.
-- **UI Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework.
-- **Components**: [ShadCN UI](https://shadcn.dev/) - Beautiful, pre-built component library.
-- **Auth**:[Kinde Auth](https://kinde.com/)-Kinde auth for authentication
+- **Framework**: [Next.js](https://nextjs.org/) React framework for server-rendered applications.
+- **Language**: [TypeScript](https://www.typescriptlang.org/) Superset of JavaScript providing static types.
+- **UI Styling**: [Tailwind CSS](https://tailwindcss.com/) Utility-first CSS framework.
+- **Components**: [ShadCN UI](https://shadcn.dev/) Beautiful, pre-built component library.
+- **Auth**:[Kinde Auth](https://kinde.com/) Kinde auth for authentication
+- **Database**:[Neon Database](https://neon.tech/docs/get-started-with-neon/why-neon) Neon for database
 
 ## 📦 Installation
 
