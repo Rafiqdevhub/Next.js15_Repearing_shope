@@ -8,6 +8,7 @@ A comprehensive **Repair Shop Application** built with **Next.js** and **TypeScr
 - **Appointment Scheduling**: Easily manage repair appointments with calendar integration.
 - **Optimized Performance**: Built with Next.js for fast load times and SEO optimization.
 - **Type Safety**: Fully typed codebase using TypeScript for reliable and maintainable development.
+-
 
 ## 🚀 Tech Stack
 
@@ -15,6 +16,7 @@ A comprehensive **Repair Shop Application** built with **Next.js** and **TypeScr
 - **Language**: [TypeScript](https://www.typescriptlang.org/) - Superset of JavaScript providing static types.
 - **UI Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework.
 - **Components**: [ShadCN UI](https://shadcn.dev/) - Beautiful, pre-built component library.
+- **Auth**:[Kinde Auth](https://kinde.com/)-Kinde auth for authentication
 
 ## 📦 Installation
 
