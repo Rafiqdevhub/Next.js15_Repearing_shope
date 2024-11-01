@@ -8,8 +8,8 @@ const nextConfig = {
 };
 
 export default withSentryConfig(nextConfig, {
-  org: "jsm-yf",
-  project: "javascript-nextjs-2o",
+  org: process.env.SENTRY_ORG,
+  project: process.env.NEXT_SENTRY_PROJECT,
 
   authToken: process.env.SENTRY_AUTH_TOKEN,
 
