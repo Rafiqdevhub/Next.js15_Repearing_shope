@@ -1,7 +1,21 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+import { withSentryConfig } from "@sentry/nextjs";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  experimental: {
+    instrumentationHook: true,
+  },
 };
 
-export default nextConfig;
+export default withSentryConfig(nextConfig, {
+  org: "jsm-yf",
+  project: "javascript-nextjs-2o",
+
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+
+  silent: false,
+
+  hideSourceMaps: true,
+
+  disableLogger: true,
+});
