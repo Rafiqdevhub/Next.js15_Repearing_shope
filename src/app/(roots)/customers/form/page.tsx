@@ -10,7 +10,6 @@ const CustomerFormPage = async ({
   try {
     const { customerId } = await searchParams;
 
-    // Edit customer form
     if (customerId) {
       const customer = await getCustomer(parseInt(customerId));
 
