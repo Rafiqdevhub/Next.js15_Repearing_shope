@@ -4,15 +4,14 @@ export const metadata = {
   title: "Page Not Found",
 };
 
-export default function NotFound() {
+const NotFound = () => {
   return (
     <div className="px-2 w-full h-screen flex flex-col justify-center items-center bg-gray-100">
       <div className="mx-auto py-4 flex flex-col justify-center items-center gap-4 bg-white p-6 rounded shadow-md">
         <h2 className="text-4xl font-bold text-red-600">404</h2>
         <h3 className="text-2xl">Page Not Found</h3>
         <p className="text-center text-gray-600">
-          Sorry, the page you are looking for does not exist. It might have been
-          moved or deleted.
+          Sorry, the page you are looking for does not exist.
         </p>
         <Link
           href="/"
@@ -23,4 +22,6 @@ export default function NotFound() {
       </div>
     </div>
   );
-}
+};
+
+export default NotFound;
