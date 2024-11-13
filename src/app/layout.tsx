@@ -17,9 +17,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: {
     template: "%s | Computer Repair Shop",
-    default: "Computer Repair Shop",
+    default: "Repairing Shop ",
   },
-  description: "Repairify Computer Shop",
+  description: "Repairify Repairing  Shop",
   applicationName: "Repair Shop",
 };
 
