@@ -14,6 +14,11 @@ import { InputWithLabel } from "@/components/Inputs/InputWithLabel";
 import { TextAreaWithLabel } from "@/components/Inputs/TextAreaWithLabel";
 import { CheckboxWithLabel } from "@/components/Inputs/CheckboxWithLabel";
 import { SelectWithLabel } from "@/components/Inputs/SelectWithLabel";
+import { useToast } from "@/hooks/use-toast";
+import { useAction } from "next-safe-action/hooks";
+import { DisplayServerActionResponse } from "@/components/DisplayServerActionResponse";
+import { LoaderCircle } from "lucide-react";
+import { saveTicketAction } from "@/app/actions/saveTicketAction";
 
 type Props = {
   customer: selectCustomerSchemaType;
@@ -31,6 +36,8 @@ export default function TicketForm({
   techs,
   isEditable = true,
 }: Props) {
+  const isManager = Array.isArray(techs);
+  const { toast } = useToast();
   const defaultValues: insertTicketSchemaType = {
     id: ticket?.id ?? "(New)",
     customerId: ticket?.customerId ?? customer.id,
@@ -46,12 +53,36 @@ export default function TicketForm({
     defaultValues,
   });
 
+  const {
+    execute: executeSave,
+    result: saveResult,
+    isPending: isSaving,
+    reset: resetSaveAction,
+  } = useAction(saveTicketAction, {
+    onSuccess({ data }) {
+      if (data?.message) {
+        toast({
+          variant: "default",
+          title: "Success! 🎉",
+          description: data.message,
+        });
+      }
+    },
+    onError({ error }) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Save Failed",
+      });
+    },
+  });
   async function submitForm(data: insertTicketSchemaType) {
-    console.log(data);
+    executeSave(data);
   }
 
   return (
     <div className="flex flex-col gap-1 sm:px-8">
+      <DisplayServerActionResponse result={saveResult} />
       <div>
         <h2 className="text-2xl font-bold">
           {ticket?.id && isEditable
@@ -134,15 +165,25 @@ export default function TicketForm({
                   className="w-3/4"
                   variant="default"
                   title="Save"
+                  disabled={isSaving}
                 >
-                  Save
+                  {isSaving ? (
+                    <>
+                      <LoaderCircle className="animate-spin" /> Saving
+                    </>
+                  ) : (
+                    "Save"
+                  )}
                 </Button>
 
                 <Button
                   type="button"
                   variant="destructive"
                   title="Reset"
-                  onClick={() => form.reset(defaultValues)}
+                  onClick={() => {
+                    form.reset(defaultValues);
+                    resetSaveAction();
+                  }}
                 >
                   Reset
                 </Button>
