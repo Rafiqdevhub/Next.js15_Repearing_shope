@@ -1,9 +1,36 @@
+import { getTicketSearchResults } from "@/lib/queries/getTicketSearchResults";
+import TicketSearch from "./TicketSearch";
+import getOpenTickets from "@/lib/queries/getOpenTickets";
+
 export const metadata = {
-  title: "Tickets",
+  title: "Ticket Search",
 };
 
-const Tickets = () => {
-  return <h2>Tickets Page</h2>;
+const Tickets = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>;
+}) => {
+  const { searchText } = await searchParams;
+
+  if (!searchText) {
+    const results = await getOpenTickets();
+    return (
+      <>
+        <TicketSearch />
+        <p>{JSON.stringify(results)}</p>
+      </>
+    );
+  }
+
+  const results = await getTicketSearchResults(searchText);
+
+  return (
+    <>
+      <TicketSearch />
+      <p>{JSON.stringify(results)}</p>
+    </>
+  );
 };
 
 export default Tickets;
