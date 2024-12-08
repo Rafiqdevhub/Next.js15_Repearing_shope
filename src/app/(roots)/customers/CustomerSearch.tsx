@@ -2,7 +2,7 @@ import SearchButton from "@/components/SearchButton";
 import { Input } from "@/components/ui/input";
 import Form from "next/form";
 
-export default function CustomerSearch() {
+const CustomerSearch = () => {
   return (
     <Form action="/customers" className="flex gap-2 items-center">
       <Input
@@ -14,4 +14,6 @@ export default function CustomerSearch() {
       <SearchButton />
     </Form>
   );
-}
+};
+
+export default CustomerSearch;

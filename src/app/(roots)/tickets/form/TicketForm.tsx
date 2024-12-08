@@ -30,12 +30,7 @@ type Props = {
   isEditable?: boolean;
 };
 
-export default function TicketForm({
-  customer,
-  ticket,
-  techs,
-  isEditable = true,
-}: Props) {
+const TicketForm = ({ customer, ticket, techs, isEditable = true }: Props) => {
   const isManager = Array.isArray(techs);
   const { toast } = useToast();
   const defaultValues: insertTicketSchemaType = {
@@ -194,4 +189,6 @@ export default function TicketForm({
       </Form>
     </div>
   );
-}
+};
+
+export default TicketForm;

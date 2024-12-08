@@ -28,7 +28,7 @@ type Props = {
   customer?: selectCustomerSchemaType;
 };
 
-export default function CustomerForm({ customer }: Props) {
+const CustomerForm = ({ customer }: Props) => {
   const { getPermission, isLoading } = useKindeBrowserClient();
   const isManager = !isLoading && getPermission("manager")?.isGranted;
   const { toast } = useToast();
@@ -193,4 +193,6 @@ export default function CustomerForm({ customer }: Props) {
       </Form>
     </div>
   );
-}
+};
+
+export default CustomerForm;

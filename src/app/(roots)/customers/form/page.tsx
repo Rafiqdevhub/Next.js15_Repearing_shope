@@ -15,11 +15,11 @@ export async function generateMetadata({
   return { title: `Edit Customer #${customerId}` };
 }
 
-export default async function CustomerFormPage({
+const CustomerFormPage = async ({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | undefined }>;
-}) {
+}) => {
   try {
     const { customerId } = await searchParams;
     if (customerId) {
@@ -45,4 +45,6 @@ export default async function CustomerFormPage({
       throw e;
     }
   }
-}
+};
+
+export default CustomerFormPage;
